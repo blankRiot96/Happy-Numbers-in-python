@@ -49,8 +49,16 @@ def isHappy(n):
   
 # Driver code 
   
-n = 4
-if (isHappy(n)): 
-    print("Yes")  
-else: 
-    print("No") 
+run = True
+n = 0
+count = 0
+while run:
+    n += 1
+    if (isHappy(n)): 
+        happy = True
+        print(n)
+        count += 1
+    else: 
+        happy = False
+    if count == 8:
+        run = False
