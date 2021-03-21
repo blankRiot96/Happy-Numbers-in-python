@@ -21,3 +21,4 @@ def happy_number(n):
 
 
 print(happy_number(7))
+a = 7
