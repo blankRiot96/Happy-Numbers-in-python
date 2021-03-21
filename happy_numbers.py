@@ -62,3 +62,4 @@ while run:
         happy = False
     if count == 8:
         run = False
+a = 10
