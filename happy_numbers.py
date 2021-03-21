@@ -76,6 +76,7 @@ def isHappy(n):
 run = True
 n = 0
 count = 0
+print('First 8 Happy Numbers: ')
 while run:
     n += 1
     if (isHappy(n)): 
