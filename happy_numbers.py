@@ -1,41 +1,56 @@
-
-def happy_number(n):
-    n1 = sum([int(letter) ** 2 for letter in str(n)])
-    happy = [n, n1]
-    while n1 != 1:
-        n1 = sum([int(letter) ** 2 for letter in str(n1)])
-        if n1 in happy:
-            return None
-        happy.append(n1)
-
-    return happy
-
-#isHappyNumber() will determine whether a number is happy or not    
-def isHappyNumber(num):   
-    count2 = 0;  
-    while True and count2 <= 8:
-        rem = sum = 0;    
-            
-        #Calculates the sum of squares of digits    
-        while(num > 0):    
-            rem = num%10;    
-            sum = sum + (rem*rem);    
-            num = num//10;    
-        return sum;    
-
-    num += 1;  
-    result = num;    
-        
-    while(result != 1 and result != 4):    
-        result = isHappyNumber(result);    
-        
-    #Happy number always ends with 1    
-    if(result == 1):    
-        print(str(num) + " is a happy number");    
-        count2 += 1; 
-    #Unhappy number ends in a cycle of repeating numbers which contain 4    
-    elif(result == 4):    
-        print(str(num) + " is not a happy number");  
-
-print(happy_number(7))
-print(isHappyNumber(1))
+# python program to check if a number 
+# is happy number 
+  
+  
+# Returns sum of squares of digits 
+# of a number n. For example for n = 12 
+# it returns 1 + 4 = 5 
+def sumDigitSquare( n): 
+    sq = 0; 
+    while (n!=0): 
+        digit = n % 10
+        sq += digit * digit 
+        n = n // 10
+          
+    return sq; 
+  
+  
+# Returns true if n is Happy number 
+# else returns false. 
+def isHappy(n): 
+    # A set to store numbers during 
+    # repeated square sum process 
+    s=set() 
+    s.add(n) 
+  
+    # Keep replacing n with sum of 
+    # squares of digits until we either 
+    # reach 1 or we endup in a cycle 
+    while (True): 
+  
+        # Number is Happy if we reach 1 
+        if (n == 1): 
+            return True; 
+  
+        # Replace n with sum of squares 
+        # of digits 
+        n = sumDigitSquare(n) 
+  
+        # If n is already visited, a cycle 
+        # is formed, means not Happy 
+        if n in s: 
+            return False
+  
+        # Mark n as visited 
+        s.add(n) 
+  
+    return false; 
+  
+  
+# Driver code 
+  
+n = 4
+if (isHappy(n)): 
+    print("Yes")  
+else: 
+    print("No") 
